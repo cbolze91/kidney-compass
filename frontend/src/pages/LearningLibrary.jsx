@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import api from '../services/api';
 import TopicCard from '../components/TopicCard';
 
@@ -27,20 +28,31 @@ function LearningLibrary() {
 
   return (
     <div className="library-page">
-      <h1>Learning Library</h1>
+      <div className="page-header">
+        <h1>Learning Library</h1>
+
+        <Link to="/topics/new" className="primary-button">
+          Add Topic
+        </Link>
+      </div>
 
       {topics.length === 0 ? (
         <div className="empty-state">
           <h2>No education topics available yet.</h2>
 
           <p>
-           We're currently adding trusted kidney education resources to the Learning Library. Please check back soon as new topics become available.
+            We're currently adding trusted kidney education resources to the
+            Learning Library. Please check back soon as new topics become
+            available.
           </p>
         </div>
       ) : (
         <div className="topic-grid">
           {topics.map((topic) => (
-            <TopicCard key={topic._id} topic={topic} />
+            <TopicCard
+              key={topic._id}
+              topic={topic}
+            />
           ))}
         </div>
       )}

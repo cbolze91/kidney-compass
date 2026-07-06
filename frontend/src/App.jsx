@@ -9,6 +9,8 @@ import TopicDetail from './pages/TopicDetail';
 import MyQuestions from './pages/MyQuestions';
 import AddQuestion from './pages/AddQuestion';
 import EditQuestion from './pages/EditQuestion';
+import AddTopic from './pages/AddTopic';
+import EditTopic from './pages/EditTopic';
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
           <Route path="/questions" element={<MyQuestions />} />
           <Route path="/questions/new" element={<AddQuestion />} />
           <Route path="/questions/:id/edit" element={<EditQuestion />} />
+          <Route path="/topics/new" element={<AddTopic />} />
+          <Route path="/topics/:id/edit" element={<EditTopic />} />
         </Routes>
       </main>
 
