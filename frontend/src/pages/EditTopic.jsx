@@ -19,7 +19,11 @@ function EditTopic() {
   useEffect(() => {
     const fetchTopic = async () => {
       try {
-        const response = await api.get(`/topics/${id}`);
+        const response = await api.get(`/topics/${id}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
 
         setFormData({
           title: response.data.title || '',
@@ -29,14 +33,15 @@ function EditTopic() {
           sourceName: response.data.sourceName || '',
           sourceUrl: response.data.sourceUrl || '',
         });
-      } catch {
-        alert('Could not load topic');
+      } catch (error) {
+        console.error(error);
+        alert(error.response?.data?.message || 'Could not load topic');
         navigate('/topics');
       }
     };
 
     fetchTopic();
-  }, [id, navigate]);
+  }, [id, navigate, token]);
 
   const handleChange = (event) => {
     setFormData({
@@ -66,14 +71,55 @@ function EditTopic() {
       <h1>Edit Topic</h1>
 
       <form onSubmit={handleSubmit}>
-        <input name="title" value={formData.title} onChange={handleChange} required />
-        <input name="category" value={formData.category} onChange={handleChange} required />
-        <textarea name="summary" value={formData.summary} onChange={handleChange} required />
-        <textarea name="body" value={formData.body} onChange={handleChange} required />
-        <input name="sourceName" value={formData.sourceName} onChange={handleChange} />
-        <input name="sourceUrl" value={formData.sourceUrl} onChange={handleChange} />
+        <input
+          name="title"
+          value={formData.title}
+          onChange={handleChange}
+          placeholder="Title"
+          required
+        />
 
-        <button type="submit">Update Topic</button>
+        <input
+          name="category"
+          value={formData.category}
+          onChange={handleChange}
+          placeholder="Category"
+          required
+        />
+
+        <textarea
+          name="summary"
+          value={formData.summary}
+          onChange={handleChange}
+          placeholder="Summary"
+          required
+        />
+
+        <textarea
+          name="body"
+          value={formData.body}
+          onChange={handleChange}
+          placeholder="Body"
+          required
+        />
+
+        <input
+          name="sourceName"
+          value={formData.sourceName}
+          onChange={handleChange}
+          placeholder="Source Name"
+        />
+
+        <input
+          name="sourceUrl"
+          value={formData.sourceUrl}
+          onChange={handleChange}
+          placeholder="Source URL"
+        />
+
+        <button type="submit">
+          Update Topic
+        </button>
       </form>
     </div>
   );

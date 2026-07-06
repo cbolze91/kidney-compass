@@ -21,15 +21,21 @@ function AddQuestion() {
   useEffect(() => {
     const fetchTopics = async () => {
       try {
-        const response = await api.get('/topics');
+        const response = await api.get('/topics', {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
         setTopics(response.data);
       } catch (error) {
         console.error(error);
+        alert(error.response?.data?.message || 'Could not load topics');
       }
     };
 
     fetchTopics();
-  }, []);
+  }, [token]);
 
   const handleChange = (event) => {
     setFormData({
@@ -60,6 +66,7 @@ function AddQuestion() {
 
       <form onSubmit={handleSubmit}>
         <label>Topic</label>
+
         <select
           name="educationTopic"
           value={formData.educationTopic}
@@ -76,6 +83,7 @@ function AddQuestion() {
         </select>
 
         <label>Question</label>
+
         <textarea
           name="question"
           placeholder="What do you want to ask your care team?"
@@ -85,6 +93,7 @@ function AddQuestion() {
         />
 
         <label>Notes</label>
+
         <textarea
           name="notes"
           placeholder="Add any notes or context..."
@@ -93,6 +102,7 @@ function AddQuestion() {
         />
 
         <label>Status</label>
+
         <select
           name="status"
           value={formData.status}
@@ -102,7 +112,9 @@ function AddQuestion() {
           <option value="Answered">Answered</option>
         </select>
 
-        <button type="submit">Save Question</button>
+        <button type="submit">
+          Save Question
+        </button>
       </form>
     </div>
   );

@@ -19,8 +19,14 @@ function EditQuestion() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const topicsResponse = await api.get('/topics');
+        // Fetch topics (protected route)
+        const topicsResponse = await api.get('/topics', {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
 
+        // Fetch the question being edited
         const questionResponse = await api.get(`/questions/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -36,6 +42,7 @@ function EditQuestion() {
           status: questionResponse.data.status || 'Open',
         });
       } catch (error) {
+        console.error(error);
         alert(error.response?.data?.message || 'Could not load question');
         navigate('/questions');
       }
@@ -73,6 +80,7 @@ function EditQuestion() {
 
       <form onSubmit={handleSubmit}>
         <label>Topic</label>
+
         <select
           name="educationTopic"
           value={formData.educationTopic}
@@ -89,6 +97,7 @@ function EditQuestion() {
         </select>
 
         <label>Question</label>
+
         <textarea
           name="question"
           value={formData.question}
@@ -97,6 +106,7 @@ function EditQuestion() {
         />
 
         <label>Notes</label>
+
         <textarea
           name="notes"
           value={formData.notes}
@@ -104,12 +114,19 @@ function EditQuestion() {
         />
 
         <label>Status</label>
-        <select name="status" value={formData.status} onChange={handleChange}>
+
+        <select
+          name="status"
+          value={formData.status}
+          onChange={handleChange}
+        >
           <option value="Open">Open</option>
           <option value="Answered">Answered</option>
         </select>
 
-        <button type="submit">Update Question</button>
+        <button type="submit">
+          Update Question
+        </button>
       </form>
     </div>
   );

@@ -14,17 +14,24 @@ function TopicDetail() {
   useEffect(() => {
     const fetchTopic = async () => {
       try {
-        const response = await api.get(`/topics/${id}`);
+        const response = await api.get(`/topics/${id}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
         setTopic(response.data);
       } catch (error) {
         console.error(error);
+        alert(error.response?.data?.message || 'Could not load topic.');
+        navigate('/topics');
       } finally {
         setLoading(false);
       }
     };
 
     fetchTopic();
-  }, [id]);
+  }, [id, token, navigate]);
 
   const handleDelete = async () => {
     const confirmDelete = window.confirm(
