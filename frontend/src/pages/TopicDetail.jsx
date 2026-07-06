@@ -10,6 +10,7 @@ function TopicDetail() {
   const [loading, setLoading] = useState(true);
 
   const token = localStorage.getItem('token');
+  const currentUser = JSON.parse(localStorage.getItem('user'));
 
   useEffect(() => {
     const fetchTopic = async () => {
@@ -96,19 +97,23 @@ function TopicDetail() {
           Save a Question About This Topic
         </Link>
 
-        <Link
-          to={`/topics/${topic._id}/edit`}
-          className="secondary-button"
-        >
-          Edit Topic
-        </Link>
+        {currentUser?.id === topic.user?._id && (
+          <>
+            <Link
+              to={`/topics/${topic._id}/edit`}
+              className="secondary-button"
+            >
+              Edit Topic
+            </Link>
 
-        <button
-          className="delete-button"
-          onClick={handleDelete}
-        >
-          Delete Topic
-        </button>
+            <button
+              className="delete-button"
+              onClick={handleDelete}
+            >
+              Delete Topic
+            </button>
+          </>
+        )}
 
         <Link
           to="/topics"

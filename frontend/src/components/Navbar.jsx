@@ -4,6 +4,7 @@ function Navbar() {
   const navigate = useNavigate();
 
   const token = localStorage.getItem('token');
+  localStorage.removeItem('user');
 
   const handleLogout = () => {
     localStorage.removeItem('token');
