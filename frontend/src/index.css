@@ -351,3 +351,44 @@ main {
   min-height: 110px;
   resize: vertical;
 }
+
+.resources-page {
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+.resources-page h1 {
+  color: #176b5d;
+  text-align: center;
+}
+
+.resources-intro {
+  max-width: 700px;
+  margin: 0 auto 32px;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.resource-card {
+  background: white;
+  padding: 24px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .06);
+}
+
+.resource-card h2 {
+  color: #176b5d;
+}
+
+.resource-card a {
+  color: #176b5d;
+  font-weight: bold;
+}

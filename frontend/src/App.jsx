@@ -11,6 +11,7 @@ import AddQuestion from './pages/AddQuestion';
 import EditQuestion from './pages/EditQuestion';
 import AddTopic from './pages/AddTopic';
 import EditTopic from './pages/EditTopic';
+import TrustedResources from './pages/TrustedResources';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/questions/:id/edit" element={<EditQuestion />} />
           <Route path="/topics/new" element={<AddTopic />} />
           <Route path="/topics/:id/edit" element={<EditTopic />} />
+          <Route path="/resources" element={<TrustedResources />} />
         </Routes>
       </main>
 

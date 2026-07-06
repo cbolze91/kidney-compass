@@ -29,7 +29,7 @@ function EditTopic() {
           sourceName: response.data.sourceName || '',
           sourceUrl: response.data.sourceUrl || '',
         });
-      } catch (error) {
+      } catch {
         alert('Could not load topic');
         navigate('/topics');
       }

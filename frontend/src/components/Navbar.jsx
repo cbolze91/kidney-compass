@@ -6,6 +6,7 @@ function Navbar() {
       <Link to="/" className="logo">Kidney Compass</Link>
 
       <div className="nav-links">
+        <Link to="/resources">Trusted Resources</Link>
         <Link to="/topics">Learning Library</Link>
         <Link to="/questions">My Questions</Link>
         <Link to="/login">Login</Link>
