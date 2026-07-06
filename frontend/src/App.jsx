@@ -8,6 +8,7 @@ import LearningLibrary from './pages/LearningLibrary';
 import TopicDetail from './pages/TopicDetail';
 import MyQuestions from './pages/MyQuestions';
 import AddQuestion from './pages/AddQuestion';
+import EditQuestion from './pages/EditQuestion';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/topics/:id" element={<TopicDetail />} />
           <Route path="/questions" element={<MyQuestions />} />
           <Route path="/questions/new" element={<AddQuestion />} />
+          <Route path="/questions/:id/edit" element={<EditQuestion />} />
         </Routes>
       </main>
 
