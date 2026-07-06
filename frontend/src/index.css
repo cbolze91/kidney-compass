@@ -105,3 +105,56 @@ main {
   border-top: 1px solid #e5e7eb;
   font-size: 14px;
 }
+
+.form-page {
+  max-width: 420px;
+  margin: 60px auto;
+  padding: 32px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.form-page h1 {
+  text-align: center;
+  color: #176b5d;
+  margin-bottom: 24px;
+}
+
+.form-page form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-page input {
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.form-page button {
+  background: #176b5d;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.form-page button:hover {
+  opacity: 0.9;
+}
+
+.form-page p {
+  text-align: center;
+  margin-top: 18px;
+}
+
+.form-page a {
+  color: #176b5d;
+  font-weight: bold;
+}
