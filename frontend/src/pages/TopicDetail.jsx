@@ -10,7 +10,6 @@ function TopicDetail() {
   const [loading, setLoading] = useState(true);
 
   const token = localStorage.getItem('token');
-  const currentUser = JSON.parse(localStorage.getItem('user'));
 
   useEffect(() => {
     const fetchTopic = async () => {
@@ -50,7 +49,7 @@ function TopicDetail() {
 
       navigate('/topics');
     } catch (error) {
-      alert(error.response?.data?.message || 'Topic could not be deleted');
+      alert(error.response?.data?.message || 'Topic could not be deleted.');
     }
   };
 
@@ -68,26 +67,26 @@ function TopicDetail() {
 
       <h1>{topic.title}</h1>
 
-      <p className="topic-summary">
-        {topic.summary}
-      </p>
+      <p className="topic-summary">{topic.summary}</p>
 
-      <div className="topic-body">
-        {topic.body}
-      </div>
+      <div className="topic-body">{topic.body}</div>
 
-      <div className="topic-source">
-        <strong>Source:</strong> {topic.sourceName}
-      </div>
+      {topic.sourceName && (
+        <div className="topic-source">
+          <strong>Source:</strong> {topic.sourceName}
+        </div>
+      )}
 
-      <a
-        href={topic.sourceUrl}
-        target="_blank"
-        rel="noreferrer"
-        className="source-link"
-      >
-        Read Original Article
-      </a>
+      {topic.sourceUrl && (
+        <a
+          href={topic.sourceUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="source-link"
+        >
+          Read Original Article
+        </a>
+      )}
 
       <div className="topic-buttons">
         <Link
@@ -97,23 +96,19 @@ function TopicDetail() {
           Save a Question About This Topic
         </Link>
 
-        {currentUser?.id === topic.user?._id && (
-          <>
-            <Link
-              to={`/topics/${topic._id}/edit`}
-              className="secondary-button"
-            >
-              Edit Topic
-            </Link>
+        <Link
+          to={`/topics/${topic._id}/edit`}
+          className="secondary-button"
+        >
+          Edit Topic
+        </Link>
 
-            <button
-              className="delete-button"
-              onClick={handleDelete}
-            >
-              Delete Topic
-            </button>
-          </>
-        )}
+        <button
+          className="delete-button"
+          onClick={handleDelete}
+        >
+          Delete Topic
+        </button>
 
         <Link
           to="/topics"
