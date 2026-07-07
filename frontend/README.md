@@ -1,5 +1,5 @@
 # Kidney Compass
-
+![logo](https://plus.unsplash.com/premium_photo-1702598804759-8fb687f774fb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZGlhbHlzaXN8ZW58MHx8MHx8fDA%3D)
 ## Overview
 
 Kidney Compass is a full-stack MERN application designed to help dialysis patients organize trusted kidney education resources and keep track of questions they want to discuss with their healthcare team.
@@ -17,8 +17,9 @@ As a Certified Hemodialysis Technician (CHT), I've seen firsthand how overwhelmi
 
 ## Live Demo
 
-**Application:**
+**Application:** 
 
+[Click Here for Live Demo](https://kidney-compass-frontend.netlify.app)
 
 ---
 
@@ -26,7 +27,7 @@ As a Certified Hemodialysis Technician (CHT), I've seen firsthand how overwhelmi
 
 ### Trello Board
 
-[https://trello.com/invite/b/6a431c4c578e04c39d626165/ATTI17e14350641053ec5d78fbbb382371fa550EF7D8/kidney-compass]
+[Click Here for Trello Board](https://trello.com/invite/b/6a431c4c578e04c39d626165/ATTI17e14350641053ec5d78fbbb382371fa550EF7D8/kidney-compass)
 
 ---
 
